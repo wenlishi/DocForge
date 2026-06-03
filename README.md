@@ -6,17 +6,32 @@
 
 三套内置主题，同一份内容，不同风格：
 
-### 简约清新
-
-![简约清新-封面](assets/minimalist-cover.png) | ![简约清新-目录](assets/minimalist-toc.png) | ![简约清新-正文](assets/minimalist-body.png)
-
-### 暖色笔记
-
-![暖色笔记-封面](assets/notebook-cover.png) | ![暖色笔记-目录](assets/notebook-toc.png) | ![暖色笔记-正文](assets/notebook-body.png)
-
-### 商务正式
-
-![商务正式-封面](assets/professional-cover.png) | ![商务正式-目录](assets/professional-toc.png) | ![商务正式-正文](assets/professional-body.png)
+<table>
+  <tr>
+    <th>主题</th>
+    <th>封面</th>
+    <th>目录</th>
+    <th>正文</th>
+  </tr>
+  <tr>
+    <td><b>简约清新</b><br>白底绿调，轻量干净</td>
+    <td><img src="assets/minimalist-cover.png" width="200"></td>
+    <td><img src="assets/minimalist-toc.png" width="200"></td>
+    <td><img src="assets/minimalist-body.png" width="200"></td>
+  </tr>
+  <tr>
+    <td><b>暖色笔记</b><br>白底棕字，纸质书感</td>
+    <td><img src="assets/notebook-cover.png" width="200"></td>
+    <td><img src="assets/notebook-toc.png" width="200"></td>
+    <td><img src="assets/notebook-body.png" width="200"></td>
+  </tr>
+  <tr>
+    <td><b>商务正式</b><br>深蓝金色，稳重专业</td>
+    <td><img src="assets/professional-cover.png" width="200"></td>
+    <td><img src="assets/professional-toc.png" width="200"></td>
+    <td><img src="assets/professional-body.png" width="200"></td>
+  </tr>
+</table>
 
 运行示例直接体验：
 
