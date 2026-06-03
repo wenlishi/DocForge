@@ -1,0 +1,488 @@
+/* ========================================
+   简约清新主题 - Minimalist Theme
+   适用于技术笔记、阅读摘要
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+/* --- 页面基础 --- */
+@page {
+  size: A4;
+  margin: 2.2cm 2.2cm 2.2cm 2.2cm;
+  @top-left {
+    content: "";
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 7.5pt;
+    color: #aab;
+    letter-spacing: 1px;
+  }
+  @top-right {
+    content: string(chapter);
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 7.5pt;
+    color: #aab;
+    max-width: 8cm;
+    text-overflow: ellipsis;
+  }
+  @bottom-center { content: ""; }
+}
+
+@page:first {
+  margin: 0;
+  @top-left { content: none; }
+  @top-right { content: none; }
+  @bottom-center { content: none; }
+}
+
+@page toc {
+  margin: 2.2cm 2.2cm 2.2cm 2.2cm;
+  @top-left { content: ""; }
+  @top-right { content: ""; }
+  @bottom-center { content: ""; }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 11pt;
+}
+
+body {
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+  color: #3d3d4a;
+  line-height: 1.9;
+  background: #ffffff;
+  font-weight: 300;
+  width: 100%;
+}
+
+/* --- 封面 --- */
+.cover-page {
+  page-break-after: always;
+  width: 21cm;
+  height: 29.7cm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4cm 3.5cm;
+  background: #fafcfa;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 顶部彩色渐变条 */
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #276749, #48bb78, #81e6d9, #48bb78, #276749);
+}
+
+/* 大圆形背景装饰 */
+.cover-page::after {
+  content: '';
+  position: absolute;
+  top: -4cm;
+  right: -3cm;
+  width: 14cm;
+  height: 14cm;
+  border: 2px solid rgba(72, 187, 120, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* 第二个圆形（更大，更淡） */
+.cover-circle-2 {
+  position: absolute;
+  bottom: -6cm;
+  left: -5cm;
+  width: 18cm;
+  height: 18cm;
+  border: 1px solid rgba(72, 187, 120, 0.05);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* 左侧装饰条 */
+.cover-accent-block {
+  position: absolute;
+  top: 3cm;
+  left: 0;
+  width: 8px;
+  height: 5cm;
+  background: linear-gradient(180deg, #276749, #48bb78);
+}
+
+/* 右侧装饰线 */
+.cover-accent-line-right {
+  position: absolute;
+  top: 4cm;
+  right: 1.5cm;
+  width: 1px;
+  height: 6cm;
+  background: rgba(72, 187, 120, 0.15);
+}
+
+/* 底部装饰小块 */
+.cover-bottom-dots {
+  position: absolute;
+  bottom: 1.5cm;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.cover-bottom-dots span {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #48bb78;
+  opacity: 0.2;
+}
+
+.cover-bottom-dots span:nth-child(2) {
+  opacity: 0.4;
+}
+
+/* 薄边框 */
+.cover-border-subtle {
+  position: absolute;
+  top: 0.6cm;
+  left: 0.6cm;
+  right: 0.6cm;
+  bottom: 0.6cm;
+  border: 1px solid rgba(72, 187, 120, 0.1);
+  pointer-events: none;
+}
+
+.cover-title {
+  font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  font-size: 38pt;
+  font-weight: 200;
+  letter-spacing: -0.5px;
+  color: #1a202c;
+  line-height: 1.2;
+  margin-bottom: 0.6cm;
+}
+
+.cover-title strong {
+  font-weight: 600;
+  color: #276749;
+}
+
+.cover-divider {
+  width: 60px;
+  height: 2px;
+  background: #48bb78;
+  margin-bottom: 0.5cm;
+}
+
+/* 副标题区域 - 浅色背景块 */
+.cover-subtitle-wrapper {
+  background: rgba(72, 187, 120, 0.04);
+  padding: 0.4cm 0.6cm;
+  margin-bottom: 0.6cm;
+  border-left: 3px solid #48bb78;
+  max-width: 75%;
+}
+
+.cover-subtitle {
+  font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  font-size: 13pt;
+  font-weight: 300;
+  color: #4a6a55;
+  line-height: 1.6;
+}
+
+.cover-meta {
+  position: absolute;
+  bottom: 3cm;
+  left: 3.5cm;
+  right: 3.5cm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5cm;
+  border-top: 1px solid rgba(72, 187, 120, 0.15);
+}
+
+.cover-meta p {
+  font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  font-size: 10pt;
+  font-weight: 300;
+  color: #88a898;
+  letter-spacing: 1px;
+}
+
+.cover-meta .date {
+  color: #a0b8aa;
+  font-size: 9.5pt;
+}
+
+/* --- 目录 --- */
+.toc-page {
+  page: toc;
+  page-break-after: always;
+}
+
+.toc-title {
+  font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  font-size: 18pt;
+  font-weight: 300;
+  color: #276749;
+  margin-bottom: 1cm;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+}
+
+.toc-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+  font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  font-size: 11pt;
+  color: #3d3d4a;
+  page-break-inside: avoid;
+}
+
+.toc-item .toc-page-num {
+  color: #48bb78;
+  font-weight: 400;
+  min-width: 2em;
+  text-align: right;
+}
+
+.toc-item-h1 {
+  font-weight: 500;
+  color: #1a202c;
+  margin-top: 4px;
+}
+
+.toc-item-h2 {
+  padding-left: 1.5em;
+  font-size: 10.5pt;
+}
+
+.toc-item-h3 {
+  padding-left: 3em;
+  font-size: 10pt;
+  color: #718096;
+}
+
+/* --- 正文 --- */
+.body-content {
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  font-size: 22pt;
+  font-weight: 300;
+  color: #1a202c;
+  margin-top: 1.5cm;
+  margin-bottom: 0.5cm;
+  page-break-before: always;
+  page-break-after: avoid;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+  string-set: chapter content();
+}
+
+h1:first-of-type {
+  page-break-before: avoid;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #48bb78;
+  margin-top: 0.3cm;
+}
+
+h2 {
+  font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  font-size: 15pt;
+  font-weight: 500;
+  color: #276749;
+  margin-top: 0.8cm;
+  margin-bottom: 0.3cm;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  font-size: 12pt;
+  font-weight: 500;
+  color: #4a5568;
+  margin-top: 0.6cm;
+  margin-bottom: 0.2cm;
+  page-break-after: avoid;
+}
+
+p {
+  text-align: justify;
+  margin-bottom: 0.5em;
+}
+
+/* --- 引用 --- */
+blockquote {
+  margin: 0.6cm 0;
+  padding: 0.4cm 0.6cm 0.4cm 1cm;
+  border-left: none;
+  background: #f0fff4;
+  color: #276749;
+  font-weight: 400;
+  page-break-inside: avoid;
+  position: relative;
+}
+
+blockquote::before {
+  content: '"';
+  position: absolute;
+  top: 0;
+  left: 0.3cm;
+  font-size: 3em;
+  font-weight: 700;
+  color: #48bb78;
+  line-height: 1;
+  opacity: 0.3;
+}
+
+blockquote p {
+  text-indent: 0;
+  margin-bottom: 0;
+}
+
+/* --- 代码 --- */
+pre {
+  background: #f0f2f0;
+  color: #2d3748;
+  padding: 0.5cm 0.7cm;
+  border-radius: 4px;
+  font-family: 'Consolas', 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 9.5pt;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin: 0.4cm 0;
+  page-break-inside: avoid;
+  border: 1px solid #e2e8e0;
+}
+
+code {
+  font-family: 'Consolas', 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 10pt;
+  background: #edf2f0;
+  padding: 2px 5px;
+  border-radius: 3px;
+  color: #276749;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* One Dark Pro 语法高亮配色 */
+.odp-kw      { color: #2d3748; }
+.odp-func    { color: #2d3748; }
+.odp-class   { color: #2d3748; }
+.odp-builtin { color: #2d3748; }
+.odp-var     { color: #2d3748; }
+.odp-attr    { color: #2d3748; }
+.odp-const   { color: #2d3748; }
+.odp-str     { color: #2d3748; }
+.odp-num     { color: #2d3748; }
+.odp-comment { color: #2d3748; }
+.odp-op      { color: #2d3748; }
+.odp-dec     { color: #2d3748; }
+
+/* --- 列表 --- */
+ul, ol {
+  margin: 0.2cm 0;
+  padding-left: 2em;
+}
+
+li {
+  margin-bottom: 0.2em;
+}
+
+ul li::marker {
+  color: #48bb78;
+}
+
+/* --- 表格 --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5cm 0;
+  font-size: 10.5pt;
+  page-break-inside: avoid;
+}
+
+thead {
+  border-bottom: 2px solid #48bb78;
+}
+
+th {
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 500;
+  color: #276749;
+  font-size: 10pt;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+/* --- 图片 --- */
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 0.4cm auto;
+  display: block;
+  border-radius: 8px;
+  page-break-inside: avoid;
+}
+
+/* --- 分隔线 --- */
+hr {
+  border: none;
+  height: 1px;
+  background: #e2e8f0;
+  margin: 0.8cm 0;
+}
+
+/* --- 打印优化 --- */
+@media print {
+  .cover-page {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  pre, blockquote, table {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{DOCUMENT_TITLE}}</title>
+
+<!-- ============================================
+     主题选择：替换下面 href 中的文件名即可
+     可选主题：
+       themes/professional.css  - 商务正式
+       themes/minimalist.css    - 简约清新
+       themes/notebook.css      - 暖色笔记
+     ============================================ -->
+<link rel="stylesheet" href="themes/professional.css">
+</head>
+<body>
+
+<!-- ============================================
+     封面区域 ———————— 必填4个字段
+     ============================================
+     所有主题共用下方 HTML 结构，各主题自动渲染不同样式。
+     替换花括号内的内容即可。
+     ============================================ -->
+<section class="cover-page">
+
+  <!-- (装饰元素，各主题按需显示) -->
+  <div class="cover-border-subtle"></div>
+  <div class="cover-accent-block"></div>
+  <div class="cover-accent-line-right"></div>
+  <div class="cover-circle-2"></div>
+  <div class="cover-top-decoration"><span class="line"></span></div>
+  <div class="cover-border"></div>
+  <div class="cover-border-inner"></div>
+  <div class="cover-decoration-top">❖ ❖ ❖</div>
+
+  <!-- ★ 字段1：主标题 -->
+  <h1 class="cover-title">如何高效学习新技术</h1>
+
+  <!-- 分割线 -->
+  <div class="cover-divider"></div>
+
+  <!-- ★ 字段2：副标题 -->
+  <div class="cover-subtitle-wrapper">
+    <p class="cover-subtitle">个人经验总结与分享</p>
+  </div>
+
+  <!-- ★ 字段3：作者 ｜ 字段4：日期 -->
+  <div class="cover-meta">
+    <p>泡泡吐puber</p>
+    <p class="date">2026 年 6 月</p>
+  </div>
+
+  <div class="cover-bottom-dots">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+</section>
+
+<!-- ============================================
+     目录页
+     根据正文的章节结构手动填写
+     ============================================ -->
+<section class="toc-page">
+  <h2 class="toc-title">目&emsp;录</h2>
+  <ul class="toc-list">
+    <!--
+      一级章节：toc-item toc-item-h1
+      二级章节：toc-item toc-item-h2
+      三级章节：toc-item toc-item-h3
+    -->
+    <li class="toc-item toc-item-h1">
+      <span>前言</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page-num">1</span>
+    </li>
+    <li class="toc-item toc-item-h1">
+      <span>第一章：核心概念</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page-num">2</span>
+    </li>
+    <li class="toc-item toc-item-h2">
+      <span>1.1 什么是 XXX</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page-num">2</span>
+    </li>
+    <li class="toc-item toc-item-h2">
+      <span>1.2 核心原理</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page-num">3</span>
+    </li>
+    <li class="toc-item toc-item-h1">
+      <span>第二章：实战方法</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page-num">5</span>
+    </li>
+    <li class="toc-item toc-item-h2">
+      <span>2.1 准备工作</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page-num">5</span>
+    </li>
+    <li class="toc-item toc-item-h3">
+      <span>2.1.1 环境配置</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page-num">5</span>
+    </li>
+    <li class="toc-item toc-item-h2">
+      <span>2.2 具体步骤</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page-num">6</span>
+    </li>
+    <li class="toc-item toc-item-h1">
+      <span>第三章：常见问题</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page-num">8</span>
+    </li>
+    <li class="toc-item toc-item-h1">
+      <span>结语</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page-num">10</span>
+    </li>
+  </ul>
+</section>
+
+<!-- ============================================
+     正文区域
+     ============================================ -->
+<section class="body-content">
+
+  <!-- 第一章 -->
+  <h1>前言</h1>
+  <p>这里写前言内容。首段首字会根据主题自动放大下沉。正文段落会自动首行缩进，保持排版规范。</p>
+  <p>这是第二个段落，展示了正常的文本排版效果。每个主题的行距、字体、颜色都有精心调校，保证阅读舒适度。</p>
+
+  <!-- 第一章 -->
+  <h1>第一章：核心概念</h1>
+
+  <h2>1.1 什么是 XXX</h2>
+  <p>这里写具体内容。可以包含 <strong>加粗</strong>、<em>斜体</em> 等行内格式。</p>
+
+  <!-- 引用块示例 -->
+  <blockquote>
+    <p>引用块的样子——这是一个经典的引用样式，用来突出重要观点或转述外部资料。不同主题的引用块样式不同。</p>
+  </blockquote>
+
+  <h2>1.2 核心原理</h2>
+  <p>正文内容...</p>
+
+  <!-- 列表示例 -->
+  <p>列表的展示效果：</p>
+  <ul>
+    <li>第一项：无序列表在商务主题中用实心圆点</li>
+    <li>第二项：简约主题用绿色圆点</li>
+    <li>第三项：暖色主题用复古风格圆点</li>
+  </ul>
+
+  <ol>
+    <li>有序列表第一项</li>
+    <li>有序列表第二项</li>
+    <li>有序列表第三项</li>
+  </ol>
+
+  <!-- 第一章 -->
+  <h1>第二章：实战方法</h1>
+
+  <h2>2.1 准备工作</h2>
+  <h3>2.1.1 环境配置</h3>
+  <p>三级标题的使用场景。</p>
+
+  <!-- 代码示例 -->
+  <p>行内代码的效果：<code>npm install</code></p>
+
+  <p>代码块的效果：</p>
+<pre><code>// 这是一段示例代码
+function hello() {
+  console.log("Hello, World!");
+  return 42;
+}
+
+// 不同主题的代码块配色不同
+const themes = ['professional', 'minimalist', 'notebook'];</code></pre>
+
+  <h2>2.2 具体步骤</h2>
+  <p>详细步骤说明...</p>
+
+  <!-- 表格示例 -->
+  <p>表格样式：</p>
+  <table>
+    <thead>
+      <tr>
+        <th>特性</th>
+        <th>商务正式</th>
+        <th>简约清新</th>
+        <th>暖色笔记</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>风格</td>
+        <td>稳重专业</td>
+        <td>清爽现代</td>
+        <td>温暖亲切</td>
+      </tr>
+      <tr>
+        <td>适用场景</td>
+        <td>技术文档</td>
+        <td>知识笔记</td>
+        <td>个人随笔</td>
+      </tr>
+      <tr>
+        <td>色调</td>
+        <td>深蓝 + 金色</td>
+        <td>白色 + 绿色</td>
+        <td>暖米 + 棕色</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 第一章 -->
+  <h1>第三章：常见问题</h1>
+  <p>各个问题的解答...</p>
+
+  <!-- 第一章 -->
+  <h1>结语</h1>
+  <p>最后的总结和寄语。</p>
+
+</section>
+
+</body>
+</html>

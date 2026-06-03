@@ -1,0 +1,480 @@
+/* ========================================
+   商务正式主题 - Professional Theme
+   适用于正式技术文档、经验总结
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+/* --- 页面基础 --- */
+@page {
+  size: A4;
+  margin: 2.5cm 2cm 2.5cm 2cm;
+  @top-left {
+    content: "";
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 8pt;
+    color: #8899aa;
+    letter-spacing: 1px;
+  }
+  @top-right {
+    content: string(chapter);
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 8pt;
+    color: #8899aa;
+    max-width: 8cm;
+    text-overflow: ellipsis;
+  }
+  @bottom-center { content: ""; }
+}
+
+@page:first {
+  margin: 0;
+  @top-left { content: none; }
+  @top-right { content: none; }
+  @bottom-center { content: none; }
+}
+
+@page toc {
+  margin: 2.5cm 2cm 2.5cm 2cm;
+  @top-left { content: ""; }
+  @top-right { content: ""; }
+  @bottom-center { content: ""; }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 12pt;
+}
+
+body {
+  font-family: 'Noto Serif SC', 'Times New Roman', serif;
+  color: #2d3748;
+  line-height: 1.8;
+  background: #ffffff;
+  width: 100%;
+}
+
+/* --- 封面 --- */
+.cover-page {
+  page-break-after: always;
+  width: 21cm;
+  height: 29.7cm;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 顶部深蓝区块 */
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10cm;
+  background: #1a2a3a;
+}
+
+/* 右下角细小几何装饰 */
+.cover-page::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 8cm;
+  height: 8cm;
+  border: 40px solid #f0f2f5;
+  border-radius: 50%;
+  transform: translate(30%, 30%);
+}
+
+/* 顶部装饰 */
+.cover-top-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.cover-top-decoration .line {
+  display: none;
+}
+
+/* 标题区域 */
+.cover-title {
+  position: absolute;
+  top: 3cm;
+  left: 2.5cm;
+  right: 2.5cm;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 28pt;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2px;
+  line-height: 1.4;
+  z-index: 1;
+}
+
+/* 深蓝块上的小装饰线 */
+.cover-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #4a7db5;
+  margin-top: 0.6cm;
+}
+
+/* 分割线（只在没有 cover-title::after 时工作） */
+.cover-divider {
+  display: none;
+}
+
+/* 副标题 - 放在白色区域 */
+.cover-subtitle {
+  position: absolute;
+  top: 11.5cm;
+  left: 2.5cm;
+  right: 2.5cm;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 13pt;
+  font-weight: 400;
+  color: #4a5568;
+  line-height: 1.8;
+  z-index: 1;
+}
+
+/* 底部信息 */
+.cover-meta {
+  position: absolute;
+  bottom: 3cm;
+  left: 2.5cm;
+  z-index: 1;
+}
+
+.cover-meta p {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 10pt;
+  color: #8899aa;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+}
+
+.cover-meta .date {
+  font-size: 9pt;
+  color: #aab;
+}
+
+/* --- 目录 --- */
+.toc-page {
+  page: toc;
+  page-break-after: always;
+  padding: 0;
+}
+
+.toc-title {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 22pt;
+  font-weight: 700;
+  color: #1a365d;
+  text-align: center;
+  margin-bottom: 0.5cm;
+  padding-bottom: 0.5cm;
+  border-bottom: 2px solid #c9a84c;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1cm;
+}
+
+.toc-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 5px 0;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 11pt;
+  color: #2d3748;
+  page-break-inside: avoid;
+}
+
+.toc-item .toc-dots {
+  flex: 1;
+  border-bottom: 1px dotted #cbd5e0;
+  margin: 0 8px;
+  height: 1em;
+}
+
+.toc-item .toc-page-num {
+  font-family: 'Noto Serif SC', serif;
+  color: #1a365d;
+  font-weight: 600;
+  min-width: 2em;
+  text-align: right;
+}
+
+.toc-item-h1 {
+  font-weight: 700;
+  font-size: 12.5pt;
+  color: #1a365d;
+}
+
+.toc-item-h2 {
+  padding-left: 1.5em;
+  font-size: 11pt;
+}
+
+.toc-item-h3 {
+  padding-left: 3em;
+  font-size: 10.5pt;
+  color: #4a5568;
+}
+
+/* --- 正文 --- */
+.body-content {
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 22pt;
+  font-weight: 700;
+  color: #1a365d;
+  margin-top: 1.5cm;
+  margin-bottom: 0.6cm;
+  padding-bottom: 0.3cm;
+  border-bottom: 2px solid #c9a84c;
+  page-break-before: always;
+  page-break-after: avoid;
+  line-height: 1.3;
+  string-set: chapter content();
+}
+
+h1:first-of-type {
+  page-break-before: avoid;
+}
+
+h2 {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 16pt;
+  font-weight: 600;
+  color: #2b6cb0;
+  margin-top: 1cm;
+  margin-bottom: 0.4cm;
+  page-break-after: avoid;
+  line-height: 1.4;
+}
+
+h3 {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 13pt;
+  font-weight: 500;
+  color: #2d3748;
+  margin-top: 0.7cm;
+  margin-bottom: 0.3cm;
+  page-break-after: avoid;
+}
+
+h4, h5, h6 {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-weight: 500;
+  color: #4a5568;
+  margin-top: 0.5cm;
+  margin-bottom: 0.2cm;
+  page-break-after: avoid;
+}
+
+p {
+  text-align: justify;
+  margin-bottom: 0.5em;
+  text-indent: 2em;
+}
+
+/* 首段非首行不缩进 */
+h1 + p, h2 + p, h3 + p {
+  text-indent: 0;
+}
+
+h1 + p::first-letter {
+  font-size: 3em;
+  font-weight: 700;
+  color: #1a365d;
+  float: left;
+  line-height: 1;
+  margin-right: 8px;
+  margin-top: 4px;
+}
+
+/* --- 引用 --- */
+blockquote {
+  margin: 0.8cm 0;
+  padding: 0.5cm 0.8cm;
+  border-left: 4px solid #2b6cb0;
+  background: #f7fafc;
+  font-style: italic;
+  color: #4a5568;
+  page-break-inside: avoid;
+}
+
+blockquote p {
+  text-indent: 0;
+  margin-bottom: 0.3em;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- 代码 --- */
+pre {
+  background: #edf0f5;
+  color: #2d3748;
+  padding: 0.5cm 0.7cm;
+  border-radius: 4px;
+  font-family: 'Consolas', 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 9.5pt;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin: 0.5cm 0;
+  page-break-inside: avoid;
+  border: 1px solid #dde2e8;
+}
+
+code {
+  font-family: 'Consolas', 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 10pt;
+  background: #e8ecf0;
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: #2b6cb0;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* 适配主题的代码配色（无语法高亮，纯色） */
+.odp-kw      { color: #2d3748; }
+.odp-func    { color: #2d3748; }
+.odp-class   { color: #2d3748; }
+.odp-builtin { color: #2d3748; }
+.odp-var     { color: #2d3748; }
+.odp-attr    { color: #2d3748; }
+.odp-const   { color: #2d3748; }
+.odp-str     { color: #2d3748; }
+.odp-num     { color: #2d3748; }
+.odp-comment { color: #2d3748; }
+.odp-op      { color: #2d3748; }
+.odp-dec     { color: #2d3748; }
+
+/* --- 列表 --- */
+ul, ol {
+  margin: 0.3cm 0;
+  padding-left: 2.5em;
+}
+
+li {
+  margin-bottom: 0.3em;
+  text-align: justify;
+}
+
+/* --- 表格 --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.6cm 0;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 11pt;
+  page-break-inside: avoid;
+}
+
+thead {
+  background: #1a365d;
+  color: #ffffff;
+}
+
+th {
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+tbody tr:nth-child(even) {
+  background: #f7fafc;
+}
+
+tbody tr:hover {
+  background: #edf2f7;
+}
+
+/* --- 图片 --- */
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 0.5cm auto;
+  display: block;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  page-break-inside: avoid;
+}
+
+/* --- 分隔线 --- */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+  margin: 1cm 0;
+}
+
+/* --- 页脚页码（正文页） --- */
+.page-footer {
+  text-align: center;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 9pt;
+  color: #a0aec0;
+  margin-top: 1cm;
+  padding-top: 0.3cm;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* --- 打印优化 --- */
+@media print {
+  body {
+    background: white;
+  }
+  .cover-page {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  pre, blockquote, table {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* --- 版本信息 --- */
+.version-info {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 9pt;
+  color: #a0aec0;
+  text-align: center;
+  margin-top: 1cm;
+}

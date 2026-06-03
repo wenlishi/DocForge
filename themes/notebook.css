@@ -1,0 +1,478 @@
+/* ========================================
+   暖色笔记主题 - Notebook Theme
+   适用于读书笔记、个人随笔、经验分享
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+
+/* --- 页面基础 --- */
+@page {
+  size: A4;
+  margin: 0;
+  @top-left { content: ""; }
+  @top-right { content: ""; }
+  @bottom-center { content: ""; }
+}
+
+@page:first {
+  margin: 0;
+  @top-left { content: none; }
+  @top-right { content: none; }
+  @bottom-center { content: none; }
+}
+
+@page toc {
+  margin: 0;
+  @top-left { content: ""; }
+  @top-right { content: ""; }
+  @bottom-center { content: ""; }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 12pt;
+  background: #ffffff;
+}
+
+body {
+  font-family: 'Noto Serif SC', 'Georgia', 'Times New Roman', serif;
+  color: #3d2b1f;
+  line-height: 2;
+  background: #ffffff;
+  width: 100%;
+}
+
+/* --- 封面 --- */
+.cover-page {
+  page-break-after: always;
+  width: 21cm;
+  height: 29.7cm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  position: relative;
+}
+
+.cover-border {
+  position: absolute;
+  top: 1.5cm;
+  left: 1.5cm;
+  right: 1.5cm;
+  bottom: 1.5cm;
+  border: 2px solid #c9b99a;
+  pointer-events: none;
+}
+
+.cover-border-inner {
+  position: absolute;
+  top: 1.8cm;
+  left: 1.8cm;
+  right: 1.8cm;
+  bottom: 1.8cm;
+  border: 1px solid #e0d5c0;
+  pointer-events: none;
+}
+
+.cover-decoration-top {
+  font-size: 24pt;
+  color: #c9b99a;
+  letter-spacing: 12px;
+  margin-bottom: 1.5cm;
+  z-index: 1;
+}
+
+.cover-title {
+  font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+  font-size: 30pt;
+  font-weight: 700;
+  color: #5c3a28;
+  text-align: center;
+  margin: 0 2.5cm 0.6cm 2.5cm;
+  z-index: 1;
+  line-height: 1.4;
+}
+
+.cover-divider {
+  width: 3cm;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9b99a, transparent);
+  margin: 0 auto 0.6cm auto;
+  z-index: 1;
+}
+
+.cover-subtitle {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 13pt;
+  color: #8b7355;
+  text-align: center;
+  font-weight: 400;
+  z-index: 1;
+  font-style: italic;
+}
+
+.cover-meta {
+  position: absolute;
+  bottom: 2.5cm;
+  text-align: center;
+  z-index: 1;
+}
+
+.cover-meta p {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 10.5pt;
+  color: #a08b76;
+  letter-spacing: 2px;
+  margin-bottom: 3px;
+}
+
+/* --- 目录 --- */
+.toc-page {
+  page: toc;
+  page-break-after: always;
+  padding: 1.5cm 2.5cm;
+}
+
+.toc-title {
+  font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+  font-size: 20pt;
+  color: #5c3a28;
+  text-align: center;
+  margin-bottom: 0.5cm;
+  padding-bottom: 0.5cm;
+  border-bottom: 1px solid #c9b99a;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.8cm;
+}
+
+.toc-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 7px 0;
+  font-family: 'Noto Serif SC', serif;
+  color: #3d2b1f;
+  page-break-inside: avoid;
+}
+
+.toc-item .toc-dots {
+  flex: 1;
+  border-bottom: 1px dotted #c9b99a;
+  margin: 0 8px;
+  height: 0.8em;
+}
+
+.toc-item .toc-page-num {
+  min-width: 2em;
+  text-align: right;
+  color: #8b7355;
+  font-weight: 600;
+}
+
+.toc-item-h1 {
+  font-weight: 700;
+  font-size: 12pt;
+  color: #5c3a28;
+}
+
+.toc-item-h2 {
+  padding-left: 1.5em;
+  font-size: 11pt;
+}
+
+.toc-item-h3 {
+  padding-left: 3em;
+  font-size: 10.5pt;
+  color: #8b7355;
+}
+
+/* --- 正文 --- */
+.body-content {
+  padding: 0.5cm 2.5cm 1.5cm 2.5cm;
+}
+
+/* 章节标题 */
+h1 {
+  font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+  font-size: 24pt;
+  font-weight: 700;
+  color: #5c3a28;
+  margin-top: 1.5cm;
+  margin-bottom: 0.8cm;
+  page-break-before: always;
+  page-break-after: avoid;
+  line-height: 1.35;
+  text-align: left;
+  padding-top: 1cm;
+  border-top: none;
+  string-set: chapter content();
+  position: relative;
+}
+
+/* 章节标题上方小装饰 */
+h1::before {
+  content: '❧';
+  display: block;
+  font-size: 16pt;
+  color: #c9b99a;
+  margin-bottom: 0.3cm;
+  text-align: left;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #c9b99a, #e0d5c0 60%, transparent);
+  margin-top: 0.3cm;
+}
+
+h1:first-of-type {
+  page-break-before: avoid;
+}
+
+/* 小节标题 */
+h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 15pt;
+  font-weight: 700;
+  color: #7c4a2e;
+  margin-top: 0.8cm;
+  margin-bottom: 0.3cm;
+  padding-bottom: 0.15cm;
+  page-break-after: avoid;
+  border-bottom: 1px solid #e0d5c0;
+}
+
+/* 子节标题 */
+h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 12.5pt;
+  font-weight: 600;
+  color: #8b7355;
+  margin-top: 0.5cm;
+  margin-bottom: 0.2cm;
+  page-break-after: avoid;
+  font-style: italic;
+}
+
+/* 正文段落 */
+p {
+  text-align: justify;
+  margin-bottom: 0.5em;
+  text-indent: 2em;
+  font-size: 11.5pt;
+  line-height: 2;
+}
+
+/* 章节首段首字下沉 */
+h1 + p::first-letter {
+  font-size: 3.2em;
+  font-weight: 700;
+  color: #5c3a28;
+  float: left;
+  line-height: 1;
+  margin-right: 6px;
+  margin-top: 4px;
+  font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+}
+
+h1 + p {
+  text-indent: 0;
+}
+
+/* 引用块 - 精装书风格 */
+blockquote {
+  margin: 0.6cm 0;
+  padding: 0.5cm 1cm 0.5cm 1.2cm;
+  background: #fafafa;
+  color: #5c3a28;
+  font-style: italic;
+  page-break-inside: avoid;
+  position: relative;
+  border: none;
+  border-left: none;
+}
+
+blockquote::before {
+  content: '\201C';
+  position: absolute;
+  top: 0.1cm;
+  left: 0.3cm;
+  font-size: 3em;
+  color: #c9b99a;
+  line-height: 1;
+  font-family: 'Noto Serif SC', serif;
+}
+
+blockquote::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1.2cm;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #c9b99a, transparent);
+}
+
+blockquote p {
+  text-indent: 0;
+  margin-bottom: 0.2em;
+  font-size: 11pt;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- 代码 --- */
+pre {
+  background: #f7f7f7;
+  color: #3d2b1f;
+  padding: 0.5cm 0.7cm;
+  border-radius: 4px;
+  font-family: 'Consolas', 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 9.5pt;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin: 0.4cm 0;
+  page-break-inside: avoid;
+  border: 1px solid #e0d5c0;
+}
+
+code {
+  font-family: 'Consolas', 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 10pt;
+  background: #f0f0f0;
+  padding: 2px 5px;
+  color: #7c4a2e;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* 适配主题的代码配色（无语法高亮，纯色） */
+.odp-kw      { color: #3d2b1f; }
+.odp-func    { color: #3d2b1f; }
+.odp-class   { color: #3d2b1f; }
+.odp-builtin { color: #3d2b1f; }
+.odp-var     { color: #3d2b1f; }
+.odp-attr    { color: #3d2b1f; }
+.odp-const   { color: #3d2b1f; }
+.odp-str     { color: #3d2b1f; }
+.odp-num     { color: #3d2b1f; }
+.odp-comment { color: #3d2b1f; }
+.odp-op      { color: #3d2b1f; }
+.odp-dec     { color: #3d2b1f; }
+
+/* --- 列表 --- */
+ul, ol {
+  margin: 0.3cm 0;
+  padding-left: 2.5em;
+}
+
+li {
+  margin-bottom: 0.3em;
+  font-size: 11.5pt;
+  line-height: 1.8;
+}
+
+ul li::marker {
+  color: #c9b99a;
+}
+
+ol li::marker {
+  color: #8b7355;
+  font-weight: 600;
+}
+
+/* --- 表格 --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5cm 0;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 10.5pt;
+  page-break-inside: avoid;
+  border: 1px solid #e0d5c0;
+}
+
+thead {
+  background: #5c3a28;
+  color: #faf6f0;
+}
+
+th {
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 10pt;
+  letter-spacing: 1px;
+}
+
+td {
+  padding: 7px 12px;
+  border-bottom: 1px solid #e0d5c0;
+  color: #3d2b1f;
+}
+
+tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+/* --- 图片 --- */
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 0.4cm auto;
+  display: block;
+  border: 1px solid #e0d5c0;
+  page-break-inside: avoid;
+}
+
+/* --- 分隔线 --- */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9b99a, transparent);
+  margin: 0.8cm 0;
+}
+
+/* --- 版本信息 --- */
+.version-info {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 9pt;
+  color: #a08b76;
+  text-align: center;
+  margin-top: 1cm;
+}
+
+/* --- 打印优化 --- */
+@media print {
+  body {
+    background: #ffffff;
+  }
+  .cover-page {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  pre, blockquote, table {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
