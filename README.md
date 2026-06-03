@@ -2,13 +2,21 @@
 
 把你的文档、Markdown、笔记、经验总结，输出为排版精美的 PDF。三套主题、可点击目录、书签树、自动页码，中文排版开箱即用。
 
-## 快速预览
+## 预览
 
 三套内置主题，同一份内容，不同风格：
 
-| 简约清新 | 暖色笔记 | 商务正式 |
-|:---:|:---:|:---:|
-| 白底绿调，轻量干净 | 白底棕字，纸质书感 | 深蓝金色，稳重专业 |
+### 简约清新
+
+![简约清新-封面](assets/minimalist-cover.png) | ![简约清新-目录](assets/minimalist-toc.png) | ![简约清新-正文](assets/minimalist-body.png)
+
+### 暖色笔记
+
+![暖色笔记-封面](assets/notebook-cover.png) | ![暖色笔记-目录](assets/notebook-toc.png) | ![暖色笔记-正文](assets/notebook-body.png)
+
+### 商务正式
+
+![商务正式-封面](assets/professional-cover.png) | ![商务正式-目录](assets/professional-toc.png) | ![商务正式-正文](assets/professional-body.png)
 
 运行示例直接体验：
 
